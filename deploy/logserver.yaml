@@ -26,7 +26,7 @@ metadata:
   name: logserver-service
 spec:
   selector:
-    app.kubernetes.io/name: logserver
+    app: logserver
   ports:
     - protocol: TCP
       port: 80
@@ -36,7 +36,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    traefik.ingress.kubernetes.io/router.tls: "true" 
+    #traefik.ingress.kubernetes.io/router.tls: "true" 
   name: logserver-ingress
 spec:
   rules:
