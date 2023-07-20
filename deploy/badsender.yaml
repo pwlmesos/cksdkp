@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bad-sender
+  labels:
+    app: bad-sender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bad-sender
+  template:
+    metadata:
+      labels:
+        app: bad-sender
+    spec:
+      containers:
+      - name: bad-sender
+        image: pwleng/logsender:0.0.1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TARGET
+          value: logserver-service 
+        - name: MESSAGE
+          value: "BAD BAD BAD.... Prevent this message $DATE  $HOSTNAME" 
+        - name: METHOD
+          value: POST 

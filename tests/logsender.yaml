@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-sender
+  labels:
+    app: random-sender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: random-sender
+  template:
+    metadata:
+      labels:
+        app: random-sender
+    spec:
+      containers:
+      - name: node-metadata-pod
+        image: curlimages/curl:7.76.1
+        args: ["http://logserver/ping -H 'Content-Type: application/json' -d 'BAD BAD BAD---- from $HOSTANME'"]
+        ports:
+        - containerPort: 80

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: good-sender
+  labels:
+    app: good-sender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: good-sender
+  template:
+    metadata:
+      labels:
+        app: good-sender
+    spec:
+      containers:
+      - name: good-sender
+        image: pwleng/logsender:0.0.1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TARGET
+          value: logserver-service 
+        - name: MESSAGE
+          value: "BAD BAD BAD.... Prevent this message" 
+        - name: METHOD
+          value: GET 
