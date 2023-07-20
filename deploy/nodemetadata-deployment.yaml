@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: node-metadata-pod
-        image: pwleng/nodemetadatacheck:0.0.4
+        image: pwleng/nodemetadatacheck:0.0.5
         ports:
         - containerPort: 80
