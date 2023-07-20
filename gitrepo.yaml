@@ -1,0 +1,13 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: example-repo
+  labels:
+    kommander.d2iq.io/gitapps-gitrepository-type: dkp
+    kommander.d2iq.io/gitrepository-type: catalog
+spec:
+  interval: 1m0s
+  ref:
+    branch: main       # e.g., main
+  timeout: 20s
+  url: https://github.com/pwlmesos/cksdkp

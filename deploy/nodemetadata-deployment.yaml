@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-metadata
+  labels:
+    app: node-metadata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-metadata
+  template:
+    metadata:
+      labels:
+        app: node-metadata
+    spec:
+      containers:
+      - name: node-metadata-pod
+        image: pwleng/nodemetadatacheck:0.0.4
+        ports:
+        - containerPort: 80
