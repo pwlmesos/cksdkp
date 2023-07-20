@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logserver
+  labels:
+    app: logserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logserver
+  template:
+    metadata:
+      labels:
+        app: logserver
+    spec:
+      containers:
+      - name: logserver-pod
+        image: pwleng/logserver:0.0.1
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: logserver-service
+spec:
+  selector:
+    app.kubernetes.io/name: logserver
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
