@@ -23,6 +23,6 @@ spec:
         - name: TARGET
           value: logserver-service 
         - name: MESSAGE
-          value: "BAD BAD BAD.... Prevent this message $DATE  $HOSTNAME" 
+          value: "BAD BAD BAD.... Prevent this message `$DATE`  `$HOSTNAME`" 
         - name: METHOD
           value: POST 
