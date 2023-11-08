@@ -39,6 +39,7 @@ metadata:
     #traefik.ingress.kubernetes.io/router.tls: "true" 
   name: logserver-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
