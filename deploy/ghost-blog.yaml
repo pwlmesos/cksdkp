@@ -49,6 +49,7 @@ metadata:
   annotations:
     #traefik.ingress.kubernetes.io/router.tls: "true" 
   name: ghostblog-ingress
+  namespace: ghost-blog
 spec:
   ingressClassName: nginx
   rules:
